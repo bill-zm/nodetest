@@ -1,0 +1,13 @@
+{
+  "server": "121.41.109.117:8200",
+  "appid": "yuekong_server",
+  "secret": "929638737cf75963a0ff7855f79c861d267cf8b0",
+  "heartbeatInterval": 60,
+  "reconnectDelay": 10,
+  "reportInterval": 60,
+  "logdir": "/tmp/",
+  "cmddir": "/root/agentx/commands",
+  "error_log": [
+    "/root/.logs/error.#YYYY#-#MM#-#DD#.log"
+  ]
+}

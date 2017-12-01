@@ -1,0 +1,45 @@
+CREATE TABLE `yuekong_db`.`remote` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `device_pdsn` VARCHAR(32) NOT NULL,
+  `category_id` INT NULL,
+  `brand_id` INT NULL,
+  `remote_index_id` INT NULL,
+  PRIMARY KEY (`id`));
+
+ALTER TABLE `yuekong_db`.`remote`
+ADD COLUMN `city_code` VARCHAR(32) NULL AFTER `brand_id`;
+
+ALTER TABLE `yuekong_db`.`remote`
+ADD COLUMN `status` TINYINT(4) NULL AFTER `city_code`;
+
+ALTER TABLE `yuekong_db`.`remote`
+ADD COLUMN `key_0` VARCHAR(20) NULL AFTER `remote_index_id`,
+ADD COLUMN `code_0` TEXT NULL AFTER `key_0`,
+ADD COLUMN `key_1` VARCHAR(20) NULL AFTER `code_0`,
+ADD COLUMN `code_1` TEXT NULL AFTER `key_1`,
+ADD COLUMN `key_2` VARCHAR(20) NULL AFTER `code_1`,
+ADD COLUMN `code_2` TEXT NULL AFTER `key_2`,
+ADD COLUMN `key_3` VARCHAR(20) NULL AFTER `code_2`,
+ADD COLUMN `code_3` TEXT NULL AFTER `key_3`,
+ADD COLUMN `key_4` VARCHAR(20) NULL AFTER `code_3`,
+ADD COLUMN `code_4` TEXT NULL AFTER `key_4`,
+ADD COLUMN `key_5` VARCHAR(20) NULL AFTER `code_4`,
+ADD COLUMN `code_5` TEXT NULL AFTER `key_5`,
+ADD COLUMN `key_6` VARCHAR(20) NULL AFTER `code_5`,
+ADD COLUMN `code_6` TEXT NULL AFTER `key_6`,
+ADD COLUMN `key_7` VARCHAR(20) NULL AFTER `code_6`,
+ADD COLUMN `code_7` TEXT NULL AFTER `key_7`,
+ADD COLUMN `key_8` VARCHAR(20) NULL AFTER `code_7`,
+ADD COLUMN `code_8` TEXT NULL AFTER `key_8`,
+ADD COLUMN `key_9` VARCHAR(20) NULL AFTER `code_8`,
+ADD COLUMN `code_9` TEXT NULL AFTER `key_9`,
+ADD COLUMN `key_10` VARCHAR(20) NULL AFTER `code_9`,
+ADD COLUMN `code_10` TEXT NULL AFTER `key_10`,
+ADD COLUMN `key_11` VARCHAR(20) NULL AFTER `code_10`,
+ADD COLUMN `code_11` TEXT NULL AFTER `key_11`,
+ADD COLUMN `key_12` VARCHAR(20) NULL AFTER `code_11`,
+ADD COLUMN `code_12` TEXT NULL AFTER `key_12`,
+ADD COLUMN `key_13` VARCHAR(20) NULL AFTER `code_12`,
+ADD COLUMN `code_13` TEXT NULL AFTER `key_13`,
+ADD COLUMN `key_14` VARCHAR(20) NULL AFTER `code_13`,
+ADD COLUMN `code_14` TEXT NULL AFTER `key_14`;

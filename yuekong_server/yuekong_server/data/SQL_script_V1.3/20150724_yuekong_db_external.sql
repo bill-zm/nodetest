@@ -1,0 +1,1 @@
+mysqldump -u root -p ucon_generic city > yuekong_city.sql

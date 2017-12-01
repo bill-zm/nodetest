@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="UCON Update">
+    <meta name="author" content="strawmanbobi">
+
+    <title>UCON 升级</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../public_js/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+        * {
+            margin: 0;
+        }
+        html, body {
+            height: 100%;
+        }
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../../public_js/bower_components/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="../../public_js/bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+    <script src="../../public_js/bower_components/jquery/dist/jquery-1.11.3.min.js"></script>
+    <script src="../../public_js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../public_js/bower_components/bootstrap/js/collapse.js"></script>
+    <script src="../../public_js/bower_components/bootstrap/js/modal.js"></script>
+    <script src="../../public_js/bower_components/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="../../public_js/utils/url_parser.js"></script>
+    <script src="./js/update.js"></script>
+</head>
+
+<body style="padding-top: 10px; width: 100%;" oncontextmenu="return false;">
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" style="text-align: center;">
+            <img id="ucon_icon" style="max-width:100%; margin-top: 40px; vertical-align:middle;" src="./images/icon_connecting_1.png" alt="Fair">
+            <img id="ucon_icon_connected" style="max-width:100%; margin-top: 40px; vertical-align:middle; display: none;" src="./images/icon_connected.png" alt="Fair">
+            <hr>
+            <h4 id="device_status" style="font-family: 微软雅黑, Arial; color: #288ce1;">连接UCON中...</h4>
+            <br>
+            <!-- <p id="current_version" style="width: 100%; text-align: center; display: none;"></p> -->
+            <div id="indication" style="text-align: left;">请确保您的计算机连接到Internet，并用串口USB线连接到UCON单体遥控器</div>
+            <br>
+
+            <div id="update_progress_panel" class="progress progress-striped active" style="height: 8px; display: none;">
+                <div id="update_progress" class="progress-bar" role="progressbar" data-transitiongoal="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+            <div id="can_not_connect" style="color: #288ce1; display: none; font-size: 12px; text-align: right";><a href="#" onclick="popupHint();">无法连接到UCON?</a></div>
+        </div><!--/.sidebar-offcanvas-->
+        <div class="col-xs-12 col-sm-9">
+
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default" id="rem_ble_panel" style="display: block;">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a id="rem_ble_ver" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                遥控器版本更新
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body" id="rem_ble_comment">
+                            获取信息中...
+                        </div>
+                    </div>
+                </div>
+                <div class="panel" id="dev_wlan_panel" style="display: none;">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a id="dev_wlan_ver" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                                遥控器版本更新
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body" id="dev_wlan_comment">
+                            获取信息中...
+                        </div>
+                    </div>
+                </div>
+                <div class="panel" id="dev_ble_panel" style="display: none;">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a id="dev_ble_ver" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                                遥控器版本更新
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body" id="dev_ble_comment">
+                            获取信息中...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="can_not_connect_dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">一直无法连接遥控器</h4>
+            </div>
+            <div class="modal-body">
+                <div>有可能你正在使用普通数据线，而没有使用正确的TTL串口线缆连接UCON，请购买TTL USB线缆并在电脑上安装驱动。</div>
+                <br>
+                <div>
+                    <span class="glyphicon glyphicon-transfer" style="margin-right: 20px;"></span><a target="_blank" href="https://item.taobao.com/item.htm?spm=a230r.1.14.20.zQT4fN&id=521034916841&ns=1&abbucket=1#detail">购买 TTL USB 线缆</a>
+                </div>
+                <br>
+                <div>
+                    <span class="glyphicon glyphicon-download" style="margin-right: 20px;"></span><a target="_blank" href="./assets/PL2303_Prolific_DriverInstaller_v1.12.0.exe">下载驱动程序</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

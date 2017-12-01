@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="Wizard of using UCON">
+    <meta name="author" content="strawmanbobi">
+
+    <title>UCON 使用说明</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../public_js/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/ref.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+        * {
+            margin: 0;
+        }
+        body {
+            font-family: 微软雅黑,Arial;
+        }
+        html, body {
+            height: 100%;
+        }
+        #container {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -50px;
+        }
+        #footer {
+            height: 50px;
+        }
+        .banner {
+            box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.2);
+            -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.2);
+            -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.2);
+            margin-top: 20px;
+            width: 100%;
+        }
+        p {
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: left;
+        }
+        .white, .white a {
+            color: #fff;
+        }
+    </style>
+
+    <script src="../../public_js/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../public_js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../public_js/utils/url_parser.js"></script>
+    <script src="./js/ref.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../../public_js/bower_components/html5shiv/dist/html5shiv.js"></script>
+    <script src="../../public_js/bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="navbar-wrapper">
+    <div class="container" style="width: 100%; padding-left: 0; padding-right: 0;">
+
+        <div class="navbar navbar-inverse navbar-static-top navbar-fixed-top">
+            <div class="container" style="background-color: #288ce1;">
+                <table width="100%">
+                    <tbody>
+                    <tr height="50px">
+                        <td width="20%">
+                            <a id="back_button" class="navbar-brand glyphicon glyphicon-menu-left" style="display: none; color: #FFFFFF;" href="#" onclick="goBack();"></a>
+                        </td>
+                        <td width="60%">
+                            <a class="navbar-brand" href="#" style="width: 100%; color: #FFFFFF; text-align: center;">UCON 使用说明</a>
+                        </td>
+                        <td width="20%">
+                            <div class="navbar-header" style="background: #288ce1">
+                                <button type="button" style="border-color: #288ce1;"
+                                        class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="navbar-collapse collapse" style="background-color: #ffffff;">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">绑定UCON遥控器</a></li>
+                        <li class="dropdown">
+                            <a href="#config_ucon" class="dropdown-toggle" data-toggle="dropdown">配置UCON遥控器 <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#config_ucon">进入配置</a></li>
+                                <li><a href="#download_bin">A-下载家电遥控码</a></li>
+                                <li><a href="#diy">B-学习遥控器红外码</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#operation">查看与删除</a></li>
+                        <li><a href="#find_ucon">寻找UCON遥控器</a></li>
+                        <li><a href="#my_subscription">查看预约</a></li>
+                        <li><a href="#device_manage">设备管理</a></li>
+                        <li><a href="#device_reset">删除设备</a></li>
+                        <li><a href="#help_tip">系统帮助</a></li>
+                        <!-- <li><a href="#settings">UCON遥控器设置</a></li> -->
+                        <li><a href="#mode_switch">遥控器模式切换</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-lg-4">
+            <h3><a name="bind_ucon">绑定UCON遥控器</a></h3>
+            <p>当UCON遥控器开机后，遥控器屏幕应显示如下</p>
+            <img src="./images/zh-CN/ucon_init_screen.png" style="max-width: 75%;" alt="UCON开机"><br><br>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>遥控器绑定过程中，请保证UCON遥控器与处于手机蓝牙可连接范围内</p>
+            <p>打开手机APP，即可根据界面上的提示，通过蓝牙搜索到您的设备。</p>
+            <img src="./images/zh-CN/ucon_config_type.png" style="max-width: 75%;" alt="选择设备"><br><br>
+            <p>系统搜索到设备后，可以为设备命名，保存后完成UCON遥控器与手机APP的绑定。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>此时如显示绑定失败，请检查UCON遥控器是否在手机附近，如果仍提示失败，请重启手机蓝牙再次尝试</p>
+            <p>如果您购买的是UCON套装，请先将UCON底座接上电源，同时UCON遥控器处于开机状态，然后在APP中选择需要添加的设备为“UCON套装”。</p>
+            <img src="./images/zh-CN/ucon_config_device.png" style="max-width: 75%;" alt="绑定套装"><br><br>
+            <p>系统搜索到UCON套装后，会自动找到手机连接的WiFi热点，此时需输入此热点的密码和设备名称，以完成UCON底座与手机APP的绑定。</p>
+            <p style="color: #F03000">请注意：UCON套装仅支持2.4GHz频段WiFi热点，不支持5GHz。此时如显示绑定失败，请检查WiFi热点是否可正常联网，并建议将UCON底座和遥控器靠近WiFi路由器，如果仍提示失败，请重启手机WiFi再次尝试。</p>
+            <p>完成UCON底座与手机APP的绑定后，可重复上一节步骤，完成UCON遥控器与手机APP的绑定。</p>
+            <img src="./images/zh-CN/ucon_manage_device.png" style="max-width: 75%;" alt="管理套装"><br><br>
+            <p>后续可通过APP中的“帮助>>UCON套装管理”进行UCON底座版本查询或删除已绑定的底座。</p>
+            <img src="./images/zh-CN/ucon_main_panel.png" style="max-width: 75%;" alt="主界面"><br><br>
+            <p>以后遥控器开启或唤醒时，屏幕上会显示遥控器名称。</p>
+            <img src="./images/zh-CN/ucon_dev_main.png" style="max-width: 75%;" alt="遥控器欢迎"><br><br>
+        </div>
+        <hr class="featurette-divider">
+        <div class="col-lg-4">
+            <h3><a name="config_ucon">配置UCON遥控器</a></h3>
+            <p>UCON遥控器完成绑定后，遥控器屏幕应显示如下：</p>
+            <img src="./images/zh-CN/ucon_pls_config.png" style="max-width: 75%;" alt="请配置"><br><br>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>遥控器配置过程中，请保证UCON遥控器与处于手机蓝牙可连接范围内</p>
+            <img src="./images/zh-CN/ucon_main_panel.png" style="max-width: 75%;" alt="点击+进入配置"><br><br>
+            <p>点击APP界面中央或者标题栏右侧的“+”，可以进入遥控器配置状态，此时遥控器屏幕应显示为：</p>
+            <img src="./images/zh-CN/ucon_start_to_config.png" style="max-width: 75%;" alt="配置中"><br><br>
+            <p>配置遥控方式可以分为两种：</p>
+            <p>A. 下载家电控制码（无需原家电遥控器）</p>
+            <p>B. 学习遥控器红外码（需要原家电遥控器）</p>
+            <br>
+            <h4><a name="download_bin">A-下载家电控制码</a></h4>
+            <p>依次选择家电类型、家电品牌，可进入下载家电控制码</p>
+            <img src="./images/zh-CN/ucon_select_category.png" style="max-width: 75%;" alt="选择类型"><br><br>
+            <img src="./images/zh-CN/ucon_select_brand.png" style="max-width: 75%;" alt="选择品牌"><br><br>
+            <img src="./images/zh-CN/ucon_downloading_bin.png" style="max-width: 75%;" alt="下载码表"><br><br>
+            <p>一个品牌下通常会包含若干个家电控制码，收到APP界面下载成功的提示后，请将UCON对准家电，根据APP页面提示的功能，依次测试对应的功能是否能够实现对家电的正确控制。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>如果不能正确控制，请点击右下角箭头切换下一个控制码，直到可以正确控制</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>如果提示下载失败，请点击重试重新下载当前控制码</p>
+            <p>控制家电成功后，可以给当前家电命名及保存，在“我的家电”下，可以看到已经配置的成功的家电。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>重复以上操作可以配置其他家电，UCON最多可以支持8个家电</p>
+            <img src="./images/zh-CN/ucon_main_panel_with_remote_1.png" style="max-width: 75%;" alt="主界面(带遥控)"><br><br>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>如果您想要配置的家电类型or品牌不在列表内，或者多次下载控制码均无法正确控制，您可以尝试用“学习遥控器红外码”的方式完成遥控配置</p>
+
+            <br>
+            <h4><a name="diy">B-学习遥控器红外码</a></h4>
+            <p>进入配置模式后，选择APP右上角“学习模式”可以看到“学习遥控教程”。</p>
+            <img src="./images/zh-CN/ucon_diy_start.png" style="max-width: 75%;" alt="开始学习"><br><br>
+            <img src="./images/zh-CN/ucon_diy_finish.png" style="max-width: 75%;" alt="保存学习"><br><br>
+            <p>点击下方“开始学习”可以将UCON遥控器激活为学习模式，根据“学习遥控教程”可完成配置。</p>
+            <img src="./images/zh-CN/ucon_main_panel_with_remote_2.png" style="max-width: 75%;" alt="主界面(带遥控2)"><br><br>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>理论上红外遥控器都可以被学习</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>由于空调红外码比较特殊，单个按键键不可以被学习，可以将空调当前状态（例如：开机+制冷+26C+高速）保存至UCON遥控器某一个按键中，学习流程不变，这样可以一键开启所需要的空调场景</p>
+
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="operation">查看与删除</a></h3>
+            <p>点击“按键说明”查看通过下载控制码的家电的遥控按键。</p>
+            <p>点击“重新配置”可以对通过下载控制码的家电进行重新配置。</p>
+            <p>点击“重新学习”可以对通过学习的家电进行按键重新学习。</p>
+            <p>“删除”可以将已配置的遥控删除。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>UCON遥控器与处于手机蓝牙可连接范围内才可删除遥控</p>
+            <img src="./images/zh-CN/ucon_remote_config_menu.png" style="max-width: 75%;" alt="操作菜单"><br><br>
+            <img src="./images/zh-CN/ucon_remote_diy_menu.png" style="max-width: 75%;" alt="手册"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="find_ucon">寻找UCON遥控器</a></h3>
+            <p>当绑定成功后，按下APP上“寻找”按钮，遥控器会发出蜂鸣声，可寻找到UCON遥控器。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>需要遥控器有电且处于手机蓝牙连接范围内</p>
+            <img src="./images/zh-CN/ucon_main_panel_with_remote_2.png" style="max-width: 75%;" alt="寻找"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="my_subscription">创建预约</a></h3>
+            <p>在“预约”栏目中，点击“+”可以选择一个已经配置的家电和底座进行预约遥控。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>此功能需要UCON套装，UCON遥控器无法独立实现</p>
+            <img src="./images/zh-CN/ucon_create_subscription.png" style="max-width: 75%;" alt="我的预约"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="my_subscription">查看预约</a></h3>
+            <p>在“预约”栏目中，可以查看已预约开启或关闭的家电。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>此功能需要UCON套装，UCON遥控器无法独立实现</p>
+            <img src="./images/zh-CN/ucon_my_subscription.png" style="max-width: 75%;" alt="我的预约"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="device_manage">设备管理</a></h3>
+            <p>通过主页面顶部的下拉设备菜单，点击名称可以切换设备，也可在此添加新设备。</p>
+            <img src="./images/zh-CN/ucon_device_list.png" style="max-width: 75%;" alt="设备菜单"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="device_reset">删除设备</a></h3>
+            <p>点击设备名称旁的X可以删除设备，删除设备时，建议同步清空UCON遥控器数据，以免影响正常使用。</p>
+            <img src="./images/zh-CN/ucon_device_list.png" style="max-width: 75%;" alt="删除设备"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="help_tip">系统帮助</a></h3>
+            <p>通过帮助导航，可以进入UCON客户端系统帮助页面。</p>
+            <img src="./images/zh-CN/ucon_help.png" style="max-width: 75%;" alt="帮助页面"><br><br>
+        </div>
+        <hr class="featurette-divider">
+        <div class="col-lg-4">
+            <h3><a name="settings">UCON遥控器设置</a></h3>
+            <p>点击“我”的栏目，可以查看或更新APP版本，用微信账号登录，以及关注悦控公众账号获取更多信息。</p>
+            <img src="./images/zh-CN/ucon_about.png" style="max-width: 75%;" alt="我"><br><br>
+            <p>进入设置栏目，可以进入系统设置界面，可以设置内容如下：</p>
+            <p>1. 为已经绑定的UCON设备重命名</p>
+            <p>2. 遥控器唤醒时是否显示欢迎语</p>
+            <p>3. 设置遥控器唤醒的灵敏度</p>
+            <p>4. 进入待机模式的时间</p>
+            <p>5. 查询固件版本</p>
+            <p>6. 删除当前遥控器</p>
+            <p>7. iOS APP用户还可以对遥控器进行固件升级</p>
+            <img src="./images/zh-CN/ucon_settings.png" style="max-width: 75%;" alt="UCON设置"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="mode_switch">遥控模式切换</a></h3>
+            <p>如果您已成功配置了多个家电遥控器，在使用过程中可通过遥控器上的模式切换键<img style="width: 24px; height: 24px;" src="./images/zh-CN/ucon_switch_button.png">改变当前控制的家电。</p>
+        </div>
+
+    </div><!-- /.row -->
+    <div id="footer" class="pull-right">
+        <nav class="navbar navbar-default navbar-fixed-bottom" style="min-height: 0;">
+            <div class="navbar-inner navbar-content-center">
+                <p class="pull-right" style="margin-right: 20px;"><a href="#">返回顶部</a></p>
+                </p>
+            </div>
+        </nav>
+    </div>
+</div><!-- /.container -->
+</body>
+</html>

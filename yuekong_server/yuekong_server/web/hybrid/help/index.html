@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="Wizard of using UCON">
+    <meta name="author" content="strawmanbobi">
+
+    <title>UCON 助手</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../public_js/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/ref.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+        * {
+            margin: 0;
+        }
+        body {
+            font-family: 微软雅黑,Arial;
+        }
+        html, body {
+            height: 100%;
+        }
+        #container {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -50px;
+        }
+        #footer {
+            height: 50px;
+        }
+        .banner {
+            box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.2);
+            -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.2);
+            -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.2);
+            margin-top: 20px;
+            width: 100%;
+        }
+        p {
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: left;
+        }
+        .white, .white a {
+            color: #fff;
+        }
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../../public_js/bower_components/html5shiv/dist/html5shiv.js"></script>
+    <script src="../../public_js/bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+    <script src="../../public_js/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../public_js/utils/url_parser.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body style="padding-top: 0px; height: 100%;">
+<div class="navbar-wrapper">
+    <div class="container" style="width: 100%; padding-left: 0; padding-right: 0;">
+
+        <div class="navbar navbar-inverse navbar-static-top navbar-fixed-top">
+            <div class="container" style="background-color: #288ce1;">
+                <table width="100%">
+                    <tbody>
+                    <tr height="50px">
+                        <td width="60%">
+                            <a class="navbar-brand" href="#" style="width: 100%; color: #FFFFFF; text-align: center;">UCON 帮助</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container marketing" style="margin-top: 40px;">
+    <div class="banner" id="video_banner" style="display: none;"><a href="#" onclick="gotoVideoPage();"><img style="max-width: 100%;" src="images/wizard_video.png"></a></div>
+    <div class="banner" id="help_banner" style="display: none;"><a href="#" onclick="gotoHelp();"><img id="help_img" style="max-width: 100%;" src="images/how_to_use.png"></a></div>
+    <div class="banner" id="device_manage_banner" style="display: none;"><a href="#" onclick="gotoDeviceManage();"><img style="max-width: 100%;" src="images/manage_device.png"></a></div>
+</div>
+</body>

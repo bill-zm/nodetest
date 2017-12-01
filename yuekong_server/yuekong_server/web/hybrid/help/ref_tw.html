@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="Wizard of using UCON">
+    <meta name="author" content="strawmanbobi">
+
+    <title>UCON 使用說明</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../public_js/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/ref.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+        * {
+            margin: 0;
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            font-family: 微软雅黑,Arial;
+        }
+        #container {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -50px;
+        }
+        #footer {
+            height: 50px;
+        }
+        .banner {
+            box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.2);
+            -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.2);
+            -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.2);
+            margin-top: 20px;
+            width: 100%;
+        }
+        p {
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: left;
+        }
+        .white, .white a {
+            color: #fff;
+        }
+    </style>
+
+    <script src="../../public_js/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../public_js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../public_js/utils/url_parser.js"></script>
+    <script src="./js/ref.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../../public_js/bower_components/html5shiv/dist/html5shiv.js"></script>
+    <script src="../../public_js/bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="navbar-wrapper">
+    <div class="container" style="width: 100%; padding-left: 0; padding-right: 0;">
+
+        <div class="navbar navbar-inverse navbar-static-top navbar-fixed-top">
+            <div class="container" style="background-color: #288ce1;">
+                <table width="100%">
+                    <tbody>
+                    <tr height="50px">
+                        <td width="20%">
+                            <a id="back_button" class="navbar-brand glyphicon glyphicon-menu-left" style="display: none; color: #FFFFFF;" href="#" onclick="goBack();"></a>
+                        </td>
+                        <td width="60%">
+                            <a class="navbar-brand" href="#" style="width: 100%; color: #FFFFFF; text-align: center;">UCON 使用說明</a>
+                        </td>
+                        <td width="20%">
+                            <div class="navbar-header" style="background: #288ce1">
+                                <button type="button" style="border-color: #288ce1;"
+                                        class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="navbar-collapse collapse" style="background-color: #ffffff;">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">綁定UCON遙控器</a></li>
+                        <li class="dropdown">
+                            <a href="#config_ucon" class="dropdown-toggle" data-toggle="dropdown">配置UCON遙控器 <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#config_ucon">進入配置</a></li>
+                                <li><a href="#download_bin">A-下載家電遙控碼</a></li>
+                                <li><a href="#diy">B-學習遙控器紅外碼</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#operation">查看與刪除</a></li>
+                        <li><a href="#find_ucon">尋找UCON遙控器</a></li>
+                        <li><a href="#my_subscription">查看預約</a></li>
+                        <li><a href="#device_manage">設備管理</a></li>
+                        <li><a href="#device_reset">刪除設備</a></li>
+                        <li><a href="#help_tip">系統説明</a></li>
+                        <!-- <li><a href="#settings">UCON遙控器設置</a></li> -->
+                        <li><a href="#mode_switch">遙控器模式切換</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-lg-4">
+            <h3><a name="bind_ucon">綁定UCON遙控器</a></h3>
+            <p>當UCON遙控器開機後，遙控器螢幕應顯示如下</p>
+            <img src="./images/zh-TW/ucon_init_screen.png" style="max-width: 75%;" alt="UCON開機"><br><br>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>遙控器綁定過程中，請保證UCON遙控器與處於手機藍牙可連接範圍內</p>
+            <p>打開手機APP，即可根據介面上的提示，通過藍牙搜索到您的設備。</p>
+            <img src="./images/zh-TW/ucon_config_type.png" style="max-width: 75%;" alt="選擇設備"><br><br>
+            <p>系統搜索到設備後，可以為設備命名，保存後完成UCON遙控器與手機APP的綁定。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>此時如顯示綁定失敗，請檢查UCON遙控器是否在手機附近，如果仍提示失敗，請重啟手機藍牙再次嘗試</p>
+            <p>如果您購買的是UCON套裝，請先將UCON底座接上電源，同時UCON遙控器處於開機狀態，然後在APP中選擇需要添加的設備為“UCON套裝”。</p>
+            <img src="./images/zh-TW/ucon_config_device.png" style="max-width: 75%;" alt="綁定套裝"><br><br>
+            <p>系統搜索到UCON套裝後，會自動找到手機連接的WiFi熱點，此時需輸入此熱點的密碼和設備名稱，以完成UCON底座與手機APP的綁定。</p>
+            <p style="color: #F03000">請注意：UCON套裝僅支持2.4GHz頻段WiFi熱點，不支持5GHz。此時如顯示綁定失敗，請檢查WiFi熱點是否可正常聯網，並建議將UCON底座和遙控器靠近WiFi路由器，如果仍提示失敗，請重啟手機WiFi再次嘗試。</p>
+            <p>完成UCON底座與手機APP的綁定後，可重複上一節步驟，完成UCON遙控器與手機APP的綁定。</p>
+            <img src="./images/zh-TW/ucon_manage_device.png" style="max-width: 75%;" alt="管理套裝"><br><br>
+            <p>後續可通過APP中的“幫助>>UCON套裝管理”進行UCON底座版本查詢或刪除已綁定的底座。</p>
+            <img src="./images/zh-TW/ucon_main_panel.png" style="max-width: 75%;" alt="主介面"><br><br>
+            <p>以後遙控器開啟或喚醒時，螢幕上會顯示遙控器名稱。</p>
+            <img src="./images/zh-TW/ucon_dev_main.png" style="max-width: 75%;" alt="遙控器歡迎"><br><br>
+        </div>
+        <hr class="featurette-divider">
+        <div class="col-lg-4">
+            <h3><a name="config_ucon">配置UCON遙控器</a></h3>
+            <p>UCON遙控器完成綁定後，遙控器螢幕應顯示如下：</p>
+            <img src="./images/zh-TW/ucon_pls_config.png" style="max-width: 75%;" alt="請配置"><br><br>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>遙控器配置過程中，請保證UCON遙控器與處於手機藍牙可連接範圍內</p>
+            <img src="./images/zh-TW/ucon_main_panel.png" style="max-width: 75%;" alt="點擊+進入配置"><br><br>
+            <p>點擊APP介面中央或者標題列右側的“+”，可以進入遙控器配置狀態，此時遙控器螢幕應顯示為：</p>
+            <img src="./images/zh-TW/ucon_start_to_config.png" style="max-width: 75%;" alt="配置中"><br><br>
+            <p>配置遙控方式可以分為兩種：</p>
+            <p>A. 下載家電控制碼（無需原家電遙控器）</p>
+            <p>B. 學習遙控器紅外碼（需要原家電遙控器）</p>
+            <br>
+            <h4><a name="download_bin">A-下載家電控制碼</a></h4>
+            <p>依次選擇家電類型、家電品牌，可進入下載家電控制碼</p>
+            <img src="./images/zh-TW/ucon_select_category.png" style="max-width: 75%;" alt="選擇類型"><br><br>
+            <img src="./images/zh-TW/ucon_select_brand.png" style="max-width: 75%;" alt="選擇品牌"><br><br>
+            <img src="./images/zh-TW/ucon_downloading_bin.png" style="max-width: 75%;" alt="下載碼表"><br><br>
+            <p>一個品牌下通常會包含若干個家電控制碼，收到APP介面下載成功的提示後，請將UCON對準家電，根據APP頁面提示的功能，依次測試對應的功能是否能夠實現對家電的正確控制。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>如果不能正確控制，請點擊右下角箭頭切換下一個控制碼，直到可以正確控制</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>如果提示下載失敗，請點擊重試重新下載當前控制碼</p>
+            <p>控制家電成功後，可以給當前家電命名及保存，在“我的家電”下，可以看到已經配置的成功的家電。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>重複以上操作可以配置其他家電，UCON最多可以支援8個家電</p>
+            <img src="./images/zh-TW/ucon_main_panel_with_remote_1.png" style="max-width: 75%;" alt="主介面(帶遙控)"><br><br>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>如果您想要配置的家電類型or品牌不在列表內，或者多次下載控制碼均無法正確控制，您可以嘗試用“學習遙控器紅外碼”的方式完成遙控配置</p>
+
+            <br>
+            <h4><a name="diy">B-學習遙控器紅外碼</a></h4>
+            <p>進入配置模式後，選擇APP右上角“學習模式”可以看到“學習遙控教程”。</p>
+            <img src="./images/zh-TW/ucon_diy_start.png" style="max-width: 75%;" alt="開始學習"><br><br>
+            <img src="./images/zh-TW/ucon_diy_finish.png" style="max-width: 75%;" alt="保存學習"><br><br>
+            <p>點擊下方“開始學習”可以將UCON遙控器啟動為學習模式，根據“學習遙控教程”可完成配置。</p>
+            <img src="./images/zh-TW/ucon_main_panel_with_remote_2.png" style="max-width: 75%;" alt="主介面(帶遙控2)"><br><br>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>理論上紅外遙控器都可以被學習</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>由於空調紅外碼比較特殊，單個按鍵鍵不可以被學習，可以將空調當前狀態（例如：開機+製冷+26C+高速）保存至UCON遙控器某一個按鍵中，學習流程不變，這樣可以一鍵開啟所需要的空調場景</p>
+
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="operation">查看與刪除</a></h3>
+            <p>點擊“按鍵說明”查看通過下載控制碼的家電的遙控按鍵。</p>
+            <p>點擊“重新配置”可以對通過下載控制碼的家電進行重新配置。</p>
+            <p>點擊“重新學習”可以對通過學習的家電進行按鍵重新學習。</p>
+            <p>“刪除”可以將已配置的遙控刪除。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>UCON遙控器與處於手機藍牙可連接範圍內才可刪除遙控</p>
+            <img src="./images/zh-TW/ucon_remote_config_menu.png" style="max-width: 75%;" alt="操作功能表"><br><br>
+            <img src="./images/zh-TW/ucon_remote_diy_menu.png" style="max-width: 75%;" alt="手冊"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="find_ucon">尋找UCON遙控器</a></h3>
+            <p>當綁定成功後，按下APP上“尋找”按鈕，遙控器會發出蜂鳴聲，可尋找到UCON遙控器。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>需要遙控器有電且處於手機藍牙連接範圍內</p>
+            <img src="./images/zh-TW/ucon_main_panel_with_remote_2.png" style="max-width: 75%;" alt="尋找"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="my_subscription">創建預約</a></h3>
+            <p>在“預約”欄目中，點擊“+”可以選擇一個已經配置的家電和底座進行預約遙控。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>此功能需要UCON套裝，UCON遙控器無法獨立實現</p>
+            <img src="./images/zh-TW/ucon_create_subscription.png" style="max-width: 75%;" alt="我的預約"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="my_subscription">查看預約</a></h3>
+            <p>在“預約”欄目中，可以查看已預約開啟或關閉的家電。</p>
+            <p style="color: #F03000"><span class="glyphicon glyphicon-star"></span>此功能需要UCON套裝，UCON遙控器無法獨立實現</p>
+            <img src="./images/zh-TW/ucon_my_subscription.png" style="max-width: 75%;" alt="我的預約"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="device_manage">設備管理</a></h3>
+            <p>通過主頁面頂部的下拉設備功能表，點擊名稱可以切換設備，也可在此添加新設備。</p>
+            <img src="./images/zh-TW/ucon_device_list.png" style="max-width: 75%;" alt="設備功能表"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="device_reset">刪除設備</a></h3>
+            <p>點擊設備名稱旁的X可以刪除設備，刪除設備時，建議同步清空UCON遙控器資料，以免影響正常使用。</p>
+            <img src="./images/zh-TW/ucon_device_list.png" style="max-width: 75%;" alt="刪除設備"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="help_tip">系統説明</a></h3>
+            <p>通過説明導航，可以進入UCON用戶端系統説明頁面。</p>
+            <img src="./images/zh-TW/ucon_help.png" style="max-width: 75%;" alt="説明頁面"><br><br>
+        </div>
+        <hr class="featurette-divider">
+        <div class="col-lg-4">
+            <h3><a name="settings">UCON遙控器設置</a></h3>
+            <p>點擊“我”的欄目，可以查看或更新APP版本，用微信帳號登錄，以及關注悅控公眾帳號獲取更多資訊。</p>
+            <img src="./images/zh-TW/ucon_about.png" style="max-width: 75%;" alt="我"><br><br>
+            <p>進入設置欄目，可以進入系統設置介面，可以設置內容如下：</p>
+            <p>1. 為已經綁定的UCON設備重命名</p>
+            <p>2. 遙控器喚醒時是否顯示歡迎語</p>
+            <p>3. 設置遙控器喚醒的靈敏度</p>
+            <p>4. 進入待機模式的時間</p>
+            <p>5. 查詢固件版本</p>
+            <p>6. 刪除當前遙控器</p>
+            <p>7. iOS APP用戶還可以對遙控器進行固件升級</p>
+            <img src="./images/zh-TW/ucon_settings.png" style="max-width: 75%;" alt="UCON設置"><br><br>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="col-lg-4">
+            <h3><a name="mode_switch">遙控模式切換</a></h3>
+            <p>如果您已成功配置了多個家電遙控器，在使用過程中可通過遙控器上的模式切換鍵<img style="width: 24px; height: 24px;" src="./images/zh-TW/ucon_switch_button.png">改變當前控制的家電。</p>
+        </div>
+
+    </div><!-- /.row -->
+    <div id="footer" class="pull-right">
+        <nav class="navbar navbar-default navbar-fixed-bottom" style="min-height: 0;">
+            <div class="navbar-inner navbar-content-center">
+                <p class="pull-right" style="margin-right: 20px;"><a href="#">返回頂部</a></p>
+                </p>
+            </div>
+        </nav>
+    </div>
+</div><!-- /.container -->
+</body>
+</html>
+

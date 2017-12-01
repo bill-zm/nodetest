@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/data/SQL_script_V1.5 (import remote to generic db)/ucon_remote_brand.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/SQL_script_V1.5 (import remote to generic db)/ucon_remote_category.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/SQL_script_V1.5 (import remote to generic db)/ucon_remote_city.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/SQL_script_V1.5 (import remote to generic db)/ucon_remote_ir_protocol.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/SQL_script_V1.5 (import remote to generic db)/ucon_remote_stb_operator.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/SQL_script_V2.7/20160125_2_yuekong_db_diff.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/hybrid/help/1.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/hybrid/help/js/dm.js" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
