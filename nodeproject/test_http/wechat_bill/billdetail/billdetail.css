@@ -1,0 +1,21 @@
+.top-div{
+    width: 100%;
+    height:40px;
+    /*opacity: 0.5;*/
+    background-color: #E3F4E4;
+    text-align: center;
+    line-height: 40px;
+    color: #09BB07;
+    font-size: 14px;
+}
+input{
+    font-size: 25px;
+    size: 20px;
+    text-align: right;
+}
+label{
+    font-size: 15px;
+}
+.plsit-p{
+    font-size: 40px;
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <title></title>
+    <script src="../lib/jquery/dist/jquery.js"></script>
+    <script src="../lib/jquery/dist/qrcode.js"></script>
+    <script src="../lib/jquery/jquery.md5.js"></script>
+    <script src="../lib/exif.js"></script>
+    <script src="../lib/dist/lrz.bundle.js"></script>
+    <script src="../common.js"></script>
+    <script src="../hmac-sha1.js"></script>
+    <script src="../enc-base64.js"></script>
+    <link rel="stylesheet" href="../style/weui.min.css">
+    <script src="billdetail.js"></script>
+    <link rel="stylesheet" href="billdetail.css">
+    <style type="text/css">
+        * {
+            /*margin: 0;*/
+            /*padding: 0;*/
+            -webkit-appearance: none; //去掉浏览器默认样式
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-touch-callout: none;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            /*margin: 0 auto;*/
+            /*width: 100%;*/
+            /*min-height: 100%;*/
+            /*overflow-x: hidden;*/
+            -webkit-user-select: none;
+            -webkit-touch-callout:none;
+        }
+
+        body {
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            -webkit-text-size-adjust: 100%; //关闭自动调整字体
+        -webkit-overflow-scrolling: touch;
+            overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body>
+    <div id="state-p" class="top-div">
+        <!--已开票-->
+    </div>
+
+    <div id="ald-div" class='weui-cells' style="margin-top: 0px">
+        <div class='weui-cell weui-cell_access'>
+            <div class='weui-cell__bd'>
+                <p id="state-pt" style='font-size: 15px;color: #09BB07'></p>
+                <div style='display: flex'>
+                    <p style='color: #888888;font-size: 15px;line-height: 30px' id="already-time"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='weui-cells'>
+        <div class='weui-cell weui-cell_access'>
+            <div class='weui-cell__bd'>
+                <p style='font-size: 15px;color: #000'>收件信息</p>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class='weui-cells' style="margin-top: 0px">-->
+        <!--<div class="weui-cell">-->
+            <!--<div class="weui-cell__bd">-->
+                <!--<p style='color: #888888;font-size: 15px;'>电子邮件</p>-->
+            <!--</div>-->
+            <!--<div class="weui-cell__ft" id="email" style='color: #888888;font-size: 15px;'>123456789@qq.com</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="weui-cell weui-cells" style="margin-top: 0px">
+        <div class="weui-cell__hd"><label class="weui-label" style='color: #888888;font-size: 15px;'>电子邮件</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="input-email" style="color: #888888;font-size: 15px;" placeholder="用于向您发送电子发票"/>
+        </div>
+    </div>
+
+    <div class='weui-cells'>
+        <div class='weui-cell weui-cell_access'>
+            <div class='weui-cell__bd'>
+                <p style='font-size: 15px;color: #000'>收件信息</p>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class='weui-cells' style="margin-top: 0px">-->
+        <!--<div class="weui-cell">-->
+            <!--<div class="weui-cell__bd">-->
+                <!--<p style='color: #888888;font-size: 15px;'>发票抬头</p>-->
+            <!--</div>-->
+            <!--<div class="weui-cell__ft" id="invoicetitle" style='color: #888888;font-size: 15px;'>深圳卖教售网络科技有限公司</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class='weui-cells' style="margin-top: 0px">-->
+        <!--<div class="weui-cell">-->
+            <!--<div class="weui-cell__bd">-->
+                <!--<p style='color: #888888;font-size: 15px;'>纳税人识别号</p>-->
+            <!--</div>-->
+            <!--<div class="weui-cell__ft" id="number" style='color: #888888;font-size: 15px;'>9184151871181981F9HC71S7</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label" style="width: 63px;color: #888888;font-size: 15px;">发票抬头</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="input-invoice" style="font-size: 15px;color: #888888;" placeholder="填写发票抬头"/>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label" style="color: #888888;font-size: 15px;">纳税人识别号</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="input-number" style="font-size: 15px;color: #888888;" placeholder="填写纳税人识别号"/>
+        </div>
+    </div>
+
+    <div class='weui-cells' style="margin-top: 0px">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p style='color: #888888;font-size: 15px;'>发票内容</p>
+            </div>
+            <div class="weui-cell__ft" id="content" style='color: #888888;font-size: 15px;'>服务费</div>
+        </div>
+    </div>
+
+    <div class='weui-cells' style="margin-top: 0px">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p style='color: #888888;font-size: 15px;'>发票金额</p>
+            </div>
+            <div class="weui-cell__ft" id='input-money' style='color: #FF813F;font-size: 15px;'>8999.10元</div>
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label" style="width: 63px;color: #888888;">地址</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="input-address" style="font-size: 15px;color: #888888;" placeholder="填写注册地址"/>
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label" style="color: #888888;">电话</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="input-phone" style="font-size: 15px;color: #888888;" placeholder="填写注册电话"/>
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label" style="width: 90px;color: #888888;">开户行及账号</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="input-bank" style="font-size: 15px;color: #888888;" placeholder="填写开户银行及银行账号"/>
+        </div>
+    </div>
+    <!--<div class="weui-cell">-->
+        <!--<div class="weui-cell__hd"><label class="weui-label" style='color: #888888;font-size: 15px;'>发票金额</label></div>-->
+        <!--<div class="weui-cell__bd">-->
+            <!--<input class="weui-input" id="input-money" style="font-size: 15px;color: #FF813F" placeholder="输入金额"/>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class='weui-cells' style="margin-top: 0px">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p style='color: #888888;font-size: 15px;'>申请时间</p>
+            </div>
+            <div class="weui-cell__ft" id="time" style='color: #888888;font-size: 15px;'></div>
+        </div>
+    </div>
+    <div class="weui-cells__title"style="height: 30px"></div>
+
+    <button id="btn-submit" href="javascript:;" class="weui-btn weui-btn_primary"
+            style="width: 90%;background-color: #00A3FF" onclick="updatesubmit(this)">重发电子发票</button>
+    <div class="weui-cells__title"style="height: 20px"></div>
+</body>
+</html>

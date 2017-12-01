@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <title>开票</title>
+  <link href="bill.css" rel="stylesheet">
+  <script src="../city/js/LAreaData1.js"></script>
+  <script src="../city/js/LAreaData2.js"></script>
+  <script src="../city/js/LArea.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script src="../lib/jquery/dist/jquery.js"></script>
+  <script src="../lib/jquery/dist/qrcode.js"></script>
+  <script src="../lib/jquery/jquery.md5.js"></script>
+  <script src="../lib/exif.js"></script>
+  <script src="../lib/dist/lrz.bundle.js"></script>
+  <script src="../common.js"></script>
+  <script src="../hmac-sha1.js"></script>
+  <script src="../enc-base64.js"></script>
+
+  <!--<link rel="stylesheet" href="../city/css/LArea.css">-->
+  <link rel="stylesheet" href="../style/weui.min.css">
+  <script src="bill.js"></script>
+  <style type="text/css">
+    * {
+      /*margin: 0;*/
+      /*padding: 0;*/
+      -webkit-appearance: none; //去掉浏览器默认样式
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -webkit-touch-callout: none;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      /*margin: 0 auto;*/
+      /*width: 100%;*/
+      /*min-height: 100%;*/
+      /*overflow-x: hidden;*/
+      -webkit-user-select: none;
+      -webkit-touch-callout:none;
+    }
+
+    body {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      -webkit-text-size-adjust: 100%; //关闭自动调整字体
+    -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
+    }
+  </style>
+</head>
+<body>
+
+
+<button href="javascript:;" class="weui-btn weui-btn_primary"
+        style="width: 90%;background-color: #00A3FF" onclick="submitClick(this)">提交</button>
+<div class="weui-cells__title"style="height: 20px"></div>
+
+
+<!--<div class="page" id="tab-list">-->
+<!--</div>-->
+</body>
+</html>
